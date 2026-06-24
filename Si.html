@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Website Animasi</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:#050816;
+    color:white;
+}
+
+
+/* Background animasi */
+
+.background{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(40px);
+    animation:float 8s infinite alternate;
+}
+
+
+.c1{
+    width:250px;
+    height:250px;
+    background:#7b2cff;
+    top:10%;
+    left:10%;
+}
+
+.c2{
+    width:300px;
+    height:300px;
+    background:#00eaff;
+    bottom:10%;
+    right:10%;
+    animation-delay:2s;
+}
+
+.c3{
+    width:180px;
+    height:180px;
+    background:#ff0080;
+    top:50%;
+    left:50%;
+    animation-delay:4s;
+}
+
+
+@keyframes float{
+    from{
+        transform:translateY(0) scale(1);
+    }
+    to{
+        transform:translateY(-80px) scale(1.2);
+    }
+}
+
+
+
+/* Partikel */
+
+.particle{
+    position:absolute;
+    width:5px;
+    height:5px;
+    background:white;
+    border-radius:50%;
+    animation:move 6s linear infinite;
+    opacity:.7;
+}
+
+
+@keyframes move{
+    from{
+        transform:translateY(100vh);
+    }
+
+    to{
+        transform:translateY(-10vh);
+    }
+}
+
+
+
+/* Konten */
+
+.container{
+
+    position:relative;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+
+.card{
+
+    width:350px;
+    padding:40px;
+    border-radius:25px;
+
+    background:rgba(255,255,255,.1);
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+    0 0 40px #00eaff;
+
+    animation:show 1.5s;
+    transition:.5s;
+
+}
+
+
+.card:hover{
+
+    transform:
+    rotateY(15deg)
+    rotateX(10deg)
+    scale(1.1);
+
+}
+
+
+@keyframes show{
+
+    from{
+        opacity:0;
+        transform:scale(.5);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+
+
+h1{
+
+    font-size:45px;
+    background:linear-gradient(
+    90deg,#00eaff,#ff00cc);
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+    animation:text 3s infinite;
+
+}
+
+
+
+@keyframes text{
+
+    50%{
+        filter:brightness(2);
+    }
+
+}
+
+
+p{
+    margin:20px 0;
+    color:#ddd;
+}
+
+
+
+button{
+
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+
+    background:
+    linear-gradient(45deg,#ff0080,#00eaff);
+
+    color:white;
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+button:hover{
+
+    transform:scale(1.2);
+    box-shadow:0 0 30px #00eaff;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="background">
+
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
+
+
+<script>
+
+for(let i=0;i<40;i++){
+
+let p=document.createElement("div");
+
+p.className="particle";
+
+p.style.left=Math.random()*100+"%";
+
+p.style.animationDelay=
+Math.random()*5+"s";
+
+p.style.animationDuration=
+(3+Math.random()*5)+"s";
+
+document.querySelector(".background")
+.appendChild(p);
+
+}
+
+</script>
+
+
+</div>
+
+
+
+
+<div class="container">
+
+
+<div class="card">
+
+
+<h1>SyeraLuna</h1>
+
+<p>
+Website Animasi Modern ✨
+<br>
+HTML + CSS + JavaScript
+</p>
+
+
+<button onclick="alert('Halo 👋')">
+Klik Saya
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</body>
+</html>
